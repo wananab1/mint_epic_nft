@@ -1,22 +1,14 @@
-pragma solidity 0.8.0;
-
-<<<<<<< HEAD
 pragma solidity ^0.8.0;
 
-=======
->>>>>>> 0a05851e484d0e5e5b6c7d6eba2feba54d093fbd
 // We need some util functions for strings.
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 
-<<<<<<< HEAD
 // We need to import the helper functions from the contract that we copy/pasted.
 import { Base64 } from "./libraries/Base64.sol";
 
-=======
->>>>>>> 0a05851e484d0e5e5b6c7d6eba2feba54d093fbd
 
 contract MyEpicNFT is ERC721URIStorage {
   using Counters for Counters.Counter;
@@ -28,19 +20,11 @@ contract MyEpicNFT is ERC721URIStorage {
 
   // I create three arrays, each with their own theme of random words.
   // Pick some random funny words, names of anime characters, foods you like, whatever!
-<<<<<<< HEAD
   string[] firstWords = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   string[] secondWords = ["Sushi", "Tempura", "Sashimi", "Ramen", "Sukiyaki", "Yakitori", "Wasabi"];
   string[] thirdWords = ["Alaska", "California", "Delaware", "Florida", "Georgia", "Hawaii", "Utah"];
 
   constructor() ERC721 ("swatanab NFT", "swatanab") {
-=======
-  string[] firstWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] secondWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-  string[] thirdWords = ["YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD", "YOUR_WORD"];
-
-  constructor() ERC721 ("SquareNFT", "SQUARE") {
->>>>>>> 0a05851e484d0e5e5b6c7d6eba2feba54d093fbd
     console.log("This is my NFT contract. Woah!");
   }
 
@@ -68,7 +52,6 @@ contract MyEpicNFT is ERC721URIStorage {
   function random(string memory input) internal pure returns (uint256) {
       return uint256(keccak256(abi.encodePacked(input)));
   }
-<<<<<<< HEAD
 
   function makeAnEpicNFT() public {
     uint256 newItemId = _tokenIds.current();
@@ -106,31 +89,12 @@ contract MyEpicNFT is ERC721URIStorage {
 
     console.log("\n--------------------");
     console.log(finalTokenUri);
-=======
-
-  function makeAnEpicNFT() public {
-    uint256 newItemId = _tokenIds.current();
-
-    // We go and randomly grab one word from each of the three arrays.
-    string memory first = pickRandomFirstWord(newItemId);
-    string memory second = pickRandomSecondWord(newItemId);
-    string memory third = pickRandomThirdWord(newItemId);
-
-    // I concatenate it all together, and then close the <text> and <svg> tags.
-    string memory finalSvg = string(abi.encodePacked(baseSvg, first, second, third, "</text></svg>"));
-    console.log("\n--------------------");
-    console.log(finalSvg);
->>>>>>> 0a05851e484d0e5e5b6c7d6eba2feba54d093fbd
     console.log("--------------------\n");
 
     _safeMint(msg.sender, newItemId);
 
     // We'll be setting the tokenURI later!
-<<<<<<< HEAD
     _setTokenURI(newItemId, finalTokenUri);
-=======
-    _setTokenURI(newItemId, "blah");
->>>>>>> 0a05851e484d0e5e5b6c7d6eba2feba54d093fbd
 
     _tokenIds.increment();
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
